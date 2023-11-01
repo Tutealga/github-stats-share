@@ -6,62 +6,16 @@ import { faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faAward, faBookBookmark, faCircleExclamation, faClockRotateLeft, faCodePullRequest, faPaperclip, faStar, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 import calculateRank from "../calculateRanks";
 import SaveImage from "@/components/saveImageButton";
+import { twitter } from "@/const/links";
+import { getUser } from "@/services/getUser";
+import { getRepos } from "@/services/getRepos";
+import { getStars } from "@/services/getStars";
+import { getCommits } from "@/services/getCommits";
+import { getIssues } from "@/services/getIssues";
+import { getPr } from "@/services/getPr";
+import { getRank } from "@/services/getRank";
 
-const getRank = async ({level}) => {
-  const ranks = {
-  "Diamante": {border:'border-[#70d1f4] shadow-[inset_0_0_70px_0px_rgba(112,209,244,0.25)]', text:'text-[#70d1f4]', borderb: 'border-b-[#70d1f4]'}, 
-  "Oro": {border:'border-[#ffd700] shadow-[inset_0_0_70px_0px_rgba(255,215,0,0.25)]', text:'text-[#ffd700]', borderb: 'border-b-[#ffd700]'}, 
-  "Bronze": {border:'border-[#cd7f32] shadow-[inset_0_0_70px_0px_rgba(205,127,50,0.25)]', text:'text-[#cd7f32]', borderb: 'border-b-[#cd7f32]'},
-  "Plata": {border:'border-[#bec2cb] shadow-[inset_0_0_70px_0px_rgba(190,194,203,0.25)]', text:'text-[#bec2cb]', borderb: 'border-b-[#bec2cb]'},
-  "Platino": {border:'border-[#046307] shadow-[inset_0_0_70px_0px_rgba(4,99,7,0.25)]', text:'text-[#046307]', borderb: 'border-b-[#046307]'},
-  "Maestro": {border:'border-[#884dA7] shadow-[inset_0_0_70px_0px_rgba(136,77,167,0.25)]', text:'text-[#884dA7]', borderb: 'border-b-[#884dA7]'}
-}
-  const ranking = Object.keys(ranks).find((res) => res === level)
-
-  return ranks[ranking]
-  }
-
-const getUser = async ({id}) => {
-  const res = await fetch(`https://api.github.com/users/${id}`)
-  const json = await res.json()
-  return json
-}
-
-const getRepos = async ({userLogin, reposCount}) => {
-  const res = await fetch(`https://api.github.com/users/${userLogin}/repos?per_page=${reposCount}`)
-  const json = await res.json()
-  return json
-}
-
-const getStars = async ({repos}) => {
-  let starsCount = []
-
-  repos.map(star => starsCount.push(star.stargazers_count))
- 
- return starsCount.reduce((prev, act) => prev + act, 0);
-}
-
-const getCommits = async ({userLogin}) => {
- const res = await fetch(`https://api.github.com/search/commits?q=author:${userLogin}`)
- const json = await res.json()
- return json.total_count
-}
-
-const getIssues = async ({userLogin}) => {
-  const res = await fetch(`https://api.github.com/search/issues?q=author:${userLogin}+is:issue`)
-  const json = await res.json()
-  return json.total_count
- }
-
- const getPr = async ({userLogin}) => {
-  const res = await fetch(`https://api.github.com/search/issues?q=author:${userLogin}+is:pr`)
-  const json = await res.json()
-  return json.total_count
- }
-
-const twitter = 'https://twitter.com/'
-
-export default async function Home({params}) {
+export default async function Page({params}) {
 const {id} = params
 const user = await getUser({id})
 const userLogin = user.login
@@ -76,7 +30,7 @@ const {level, percentile} = await calculateRank({commits, pr, issues, stars, fol
 const hexRank = await getRank({level})
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-5 w-[400px] m-auto gap-4">
+    <>
       <div id="user-card" className={`border p-5 rounded-lg w-full h-[450px] justify-between flex flex-col ${hexRank.border}`}>
       <div className={`flex items-center justify-between border-opacity-20 ${hexRank.borderb} border-b pb-6`}>
         <div className="flex gap-2">
@@ -100,6 +54,6 @@ const hexRank = await getRank({level})
      </div>
       </div>
     <SaveImage />
-    </main>
+    </>
   )
 }
