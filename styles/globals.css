@@ -18,6 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  font-family: system-ui;
   background: linear-gradient(
       to bottom,
       transparent,
@@ -25,3 +26,4 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
