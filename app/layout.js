@@ -5,8 +5,8 @@ import { faAward } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const metadata = {
-  title: 'GitHub Stats',
-  description: 'GitHub stats for Linkedin',
+  title: 'GitHub Stats for Linkedin',
+  description: 'Search your GitHub stats and share on Linkedin',
 }
 
 export default function RootLayout({ children }) {
