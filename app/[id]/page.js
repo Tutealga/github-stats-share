@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faAward, faBookBookmark, faCircleExclamation, faClockRotateLeft, faCodePullRequest, faPaperclip, faStar, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 import calculateRank from "../calculateRanks";
-import SaveImage from "@/components/saveImageButton";
-import { twitter } from "@/const/links";
-import { getUser, getRepos, getStars, getCommits, getIssues, getPr } from '@/services/index';
+import SaveImage from "@/app/components/saveImageButton";
+import { twitter } from "@/app/const/links";
+import { getUser, getRepos, getStars, getCommits, getIssues, getPr } from '@/app/services/index';
 
 const getRank = async ({level}) => {
   const ranks = {

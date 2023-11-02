@@ -1,5 +1,5 @@
-import Footer from '@/components/Footer'
-import Search from '@/components/Search'
+import Footer from '@/app/components/Footer'
+import Search from '@/app/components/Search'
 import '@/styles/globals.css'
 
 export const metadata = {

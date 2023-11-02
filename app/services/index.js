@@ -1,4 +1,4 @@
-import { searchPath, userPath } from "@/const/links"
+import { searchPath, userPath } from "@/app/const/links"
 
 export const getCommits = async ({userLogin}) => {
     const res = await fetch(`${searchPath}commits?q=author:${userLogin}`)
