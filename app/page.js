@@ -35,7 +35,6 @@ useEffect(()=>{
 }, [])
 
   return (
-    <>
     <article id="user-card" className={`border p-5 rounded-lg w-full h-[450px] justify-between flex flex-col ${rank.border} ease-in-out duration-500 transition`}>
       <div className={`flex items-center justify-between border-opacity-20 ${rank.borderb} border-b pb-6`}>
         <div className="flex gap-2">
@@ -57,6 +56,5 @@ useEffect(()=>{
      <Link href="https://twitter.com/midudev" className="gap-2 flex items-center"><FontAwesomeIcon className="w-4 h-4" icon={faXTwitter} />midudev</Link>
      </div>
       </article>
-    </>
   )
 }
