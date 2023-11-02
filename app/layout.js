@@ -16,12 +16,12 @@ export default function RootLayout({ children }) {
           <section className="flex flex-col items-center justify-center p-5 w-[400px] m-auto gap-4">
           <h1 className="text-2xl font-bold">GitHub stats for Linkedin</h1>
           <section className="grid grid-cols-3 items-center sm:flex justify-center gap-4">
-            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#884dA7] w-6 h-6' icon={faAward} flip />Amethyst</article>
-            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#70d1f4] w-6 h-6' icon={faAward} flip />Diamond</article>
-            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#046307] w-6 h-6' icon={faAward} flip />Emerald</article>
-            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#ffd700] w-6 h-6' icon={faAward} flip />Gold</article>
-            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#bec2cb] w-6 h-6' icon={faAward} flip />Silver</article>
-            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#cd7f32] w-6 h-6' icon={faAward} flip />Bronze</article>
+            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#884dA7] w-6 h-6' icon={faAward} />Amethyst</article>
+            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#70d1f4] w-6 h-6' icon={faAward} />Diamond</article>
+            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#046307] w-6 h-6' icon={faAward} />Emerald</article>
+            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#ffd700] w-6 h-6' icon={faAward} />Gold</article>
+            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#bec2cb] w-6 h-6' icon={faAward} />Silver</article>
+            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#cd7f32] w-6 h-6' icon={faAward} />Bronze</article>
           </section>
           <Search />
         {children}
