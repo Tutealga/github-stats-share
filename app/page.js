@@ -6,22 +6,18 @@ import { faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faAward, faBookBookmark, faCircleExclamation, faClockRotateLeft, faCodePullRequest, faPaperclip, faStar, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 import calculateRank from "./calculateRanks";
 import { twitter } from "@/const/links";
-import { getUser } from "@/services/getUser";
-import { getRepos } from "@/services/getRepos";
-import { getStars } from "@/services/getStars";
-import { getCommits } from "@/services/getCommits";
-import { getIssues } from "@/services/getIssues";
-import { getPr } from "@/services/getPr";
+import { getUser, getRepos, getStars, getCommits, getIssues, getPr } from '@/services/index'
 
 const getRank = async ({level}) => {
-  const ranks = {
-  "Diamante": {border:'border-[#70d1f4] shadow-[inset_0_0_70px_0px_rgba(112,209,244,0.5)]', text:'text-[#70d1f4]', borderb: 'border-b-[#70d1f4]'}, 
-  "Oro": {border:'border-[#ffd700] shadow-[inset_0_0_70px_0px_rgba(255,215,0,0.5)]', text:'text-[#ffd700]', borderb: 'border-b-[#ffd700]'}, 
-  "Bronze": {border:'border-[#cd7f32] shadow-[inset_0_0_70px_0px_rgba(205,127,50,0.5)]', text:'text-[#cd7f32]', borderb: 'border-b-[#cd7f32]'},
-  "Plata": {border:'border-[#bec2cb] shadow-[inset_0_0_70px_0px_rgba(190,194,203,0.5)]', text:'text-[#bec2cb]', borderb: 'border-b-[#bec2cb]'},
-  "Platino": {border:'border-[#046307] shadow-[inset_0_0_70px_0px_rgba(4,99,7,0.5)]', text:'text-[#046307]', borderb: 'border-b-[#046307]'},
-  "Maestro": {border:'border-[#884dA7] shadow-[inset_0_0_70px_0px_rgba(136,77,167,0.5)]', text:'text-[#884dA7]', borderb: 'border-b-[#884dA7]'}
-}
+   const ranks = {
+    "Diamante": {border:'border-[#70d1f4] shadow-[inset_0_0_70px_0px_rgba(112,209,244,0.5)]', text:'text-[#70d1f4]', borderb: 'border-b-[#70d1f4]'}, 
+    "Oro": {border:'border-[#ffd700] shadow-[inset_0_0_70px_0px_rgba(255,215,0,0.5)]', text:'text-[#ffd700]', borderb: 'border-b-[#ffd700]'}, 
+    "Bronze": {border:'border-[#cd7f32] shadow-[inset_0_0_70px_0px_rgba(205,127,50,0.5)]', text:'text-[#cd7f32]', borderb: 'border-b-[#cd7f32]'},
+    "Plata": {border:'border-[#bec2cb] shadow-[inset_0_0_70px_0px_rgba(190,194,203,0.5)]', text:'text-[#bec2cb]', borderb: 'border-b-[#bec2cb]'},
+    "Platino": {border:'border-[#046307] shadow-[inset_0_0_70px_0px_rgba(4,99,7,0.5)]', text:'text-[#046307]', borderb: 'border-b-[#046307]'},
+    "Maestro": {border:'border-[#884dA7] shadow-[inset_0_0_70px_0px_rgba(136,77,167,0.5)]', text:'text-[#884dA7]', borderb: 'border-b-[#884dA7]'}
+  }
+
   const ranking = Object.keys(ranks).find((res) => res === level)
 
   return ranks[ranking]
@@ -42,7 +38,7 @@ const hexRank = await getRank({level})
 
   return (
     <>
-      <div id="user-card" className={`border p-5 rounded-lg w-full h-[450px] justify-between flex flex-col ${hexRank.border}`}>
+      <article id="user-card" className={`border p-5 rounded-lg w-full h-[450px] justify-between flex flex-col ${hexRank.border}`}>
       <div className={`flex items-center justify-between border-opacity-20 ${hexRank.borderb} border-b pb-6`}>
         <div className="flex gap-2">
       <Image src={user.avatar_url} width={50} height={50} className="rounded-full w-14 h-14"/>
@@ -63,7 +59,7 @@ const hexRank = await getRank({level})
      {user.twitter_username && <Link href={`${twitter}${user.twitter_username}`} className="gap-2 flex items-center"><FontAwesomeIcon className="w-4 h-4" icon={faXTwitter} />{user.twitter_username}</Link>}
      {user.blog && <Link className="gap-2 flex items-center" href={user.blog}><FontAwesomeIcon className="w-4 h-4" icon={faPaperclip} />website</Link>}
      </div>
-      </div>
+      </article>
     </>
   )
 }
