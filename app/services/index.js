@@ -19,16 +19,24 @@ export const getCommits = async ({userLogin}) => {
    }
 
    export const getRepos = async ({userLogin, reposCount}) => {
-    const res = await fetch(`${userPath}${userLogin}/repos?per_page=${reposCount}`)
-    const json = await res.json()
-    return json
+     let pages = Math.ceil(reposCount / 100)
+     let stars = []
+    
+     if(reposCount >= 100){
+      for(let i = 1; i <= pages; i++){
+        const res = await fetch(`${userPath}${userLogin}/repos?per_page=100&page=${i}`)
+        const json = await res.json()
+        json.map(star => stars.push(star.stargazers_count))
+      } 
+    } else {
+      const res = await fetch(`${userPath}${userLogin}/repos?per_page=${reposCount}`)
+      const json = await res.json()
+      json.map(star => stars.push(star.stargazers_count))
+    }
+    return stars
   }
 
-  export const getStars = async ({repos}) => {
-    let starsCount = []
-  
-    repos.map(star => starsCount.push(star.stargazers_count))
-   
+  export const getStars = async ({starsCount}) => {   
    return starsCount.reduce((prev, act) => prev + act, 0);
   }
 
