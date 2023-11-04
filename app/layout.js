@@ -8,12 +8,9 @@ export const metadata = {
   title: 'GitHub Stats for Linkedin',
   description: 'Search your GitHub stats and share on Linkedin',
   metadataBase: new URL('https://github-stats-linkedin.vercel.app'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     title: 'GitHub stats for share on Linkedin',
-    description: 'GitHub stats for share on Linkedin',
+    description: 'Search your GitHub stats and share on Linkedin',
     images: '/opengraph-image.jpg',
   },
 }
