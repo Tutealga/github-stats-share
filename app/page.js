@@ -41,7 +41,7 @@ useEffect(()=>{
       <Image src="https://avatars.githubusercontent.com/u/1561955?v=4" width={50} height={50} className="rounded-full w-14 h-14"/>
      <p className="text-white flex font-bold items-center">Miguel Ángel Durán</p>
         </div>
-     <FontAwesomeIcon className={`${rank.text} w-10 h-10`} icon={faAward} flip />
+     <FontAwesomeIcon className={`${rank.text} w-10 h-10`} icon={faAward} />
       </div>
      <div className="grid grid-cols-2 gap-4">
      <div className="flex flex-col text-sm"><div className="flex gap-1 items-center"><FontAwesomeIcon className="w-4 h-4" icon={faStar} /><span>Stars:</span></div><p className="font-bold">12.5k</p></div>
