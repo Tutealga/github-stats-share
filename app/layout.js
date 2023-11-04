@@ -1,8 +1,6 @@
 import Footer from '@/app/components/Footer'
 import Search from '@/app/components/Search'
 import '@/styles/globals.css'
-import { faAward } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const metadata = {
   title: 'GitHub Stats for Linkedin',
@@ -12,6 +10,7 @@ export const metadata = {
     title: 'GitHub stats for share on Linkedin',
     description: 'Search your GitHub stats and share on Linkedin',
     images: '/opengraph-image.jpg',
+    url: 'https://github-stats-linkedin.vercel.app',
   },
 }
 
@@ -22,11 +21,11 @@ export default function RootLayout({ children }) {
           <section className="flex flex-col items-center justify-center p-5 w-[400px] m-auto gap-4">
           <h1 className="text-2xl font-bold">GitHub stats for Linkedin</h1>
           <section className="grid grid-cols-3 items-center sm:flex justify-center gap-4">
-            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#70d1f4] w-6 h-6' icon={faAward} />Diamond</article>
-            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#046307] w-6 h-6' icon={faAward} />Emerald</article>
-            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#ffd700] w-6 h-6' icon={faAward} />Gold</article>
-            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#bec2cb] w-6 h-6' icon={faAward} />Silver</article>
-            <article className="flex items-center justify-center gap-0.5"><FontAwesomeIcon className='text-[#cd7f32] w-6 h-6' icon={faAward} />Bronze</article>
+            <article className="flex items-center justify-center gap-1"><div className='bg-[#70d1f4] rounded-full w-6 h-6' />Diamond</article>
+            <article className="flex items-center justify-center gap-1"><div className='bg-[#046307] rounded-full w-6 h-6' />Emerald</article>
+            <article className="flex items-center justify-center gap-1"><div className='bg-[#ffd700] rounded-full w-6 h-6' />Gold</article>
+            <article className="flex items-center justify-center gap-1"><div className='bg-[#bec2cb] rounded-full w-6 h-6' />Silver</article>
+            <article className="flex items-center justify-center gap-1"><div className='bg-[#cd7f32] rounded-full w-6 h-6' />Bronze</article>
           </section>
           <Search />
         {children}
