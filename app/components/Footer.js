@@ -5,7 +5,7 @@ import Link from 'next/link'
 const Footer = () => {
     
     return (
-    <footer className="flex gap-2 opacity-30 text-sm">
+    <footer className="flex gap-2 opacity-20 text-sm">
         © 2023 ·
         <Link className="flex gap-1 items-center justify-center" href="https://www.linkedin.com/in/mateoalganaras/">
             <FontAwesomeIcon className="w-4 h-4" icon={faLinkedin} />
