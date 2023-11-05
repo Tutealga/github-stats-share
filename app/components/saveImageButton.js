@@ -7,7 +7,7 @@ const saveComponentAsImage = () => {
     .then(function (dataUrl) {
       const link = document.createElement('a')
 
-      link.download = `dev.jpg`
+      link.download = `${crypto.randomUUID()}.jpg`
       link.href = dataUrl
       link.click()
     })
