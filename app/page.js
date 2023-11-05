@@ -9,11 +9,11 @@ import { faAward, faBookBookmark, faCircleExclamation, faClockRotateLeft, faCode
 import { useEffect, useState } from "react";
 
   const ranks = {
-    Diamante: {border:'border-[#70d1f4] bg-[linear-gradient(120deg,rgb(0,61,83,0.1)0%,rgb(112,209,244,0.1)100%)]', text:'text-[#70d1f4]', borderb: 'border-b-[#70d1f4]'}, 
-    Oro: {border:'border-[#ffd700] bg-[linear-gradient(120deg, rgba(179,156,33,0.1)0%,rgb(255,215,0,0.1)100%)]', text:'text-[#ffd700]', borderb: 'border-b-[#ffd700]'}, 
-    Bronze: {border:'border-[#cd7f32] bg-[linear-gradient(120deg,rgb(205,127,50,0.1)0%,rgb(255,127,0,0.1)100%)]', text:'text-[#cd7f32]', borderb: 'border-b-[#cd7f32]'},
-    Plata: {border:'border-[#bec2cb] bg-[linear-gradient(120deg,rgb(190,194,203,0.1)0%,rgb(255,255,255,0.1)100%)]', text:'text-[#bec2cb]', borderb: 'border-b-[#bec2cb]'},
-    Platino: {border:'border-[#046307] bg-[linear-gradient(120deg,rgb(4,99,7,0.1)0%,rgb(0,255,8,0.1)100%)]', text:'text-[#046307]', borderb: 'border-b-[#046307]'}
+    Diamante: {border:'border-[#70d1f4] bg-[#70d1f4] bg-opacity-10', text:'text-[#70d1f4]', borderb: 'border-b-[#70d1f4]'}, 
+    Oro: {border:'border-[#ffd700] bg-[#ffd700] bg-opacity-10', text:'text-[#ffd700]', borderb: 'border-b-[#ffd700]'}, 
+    Bronze: {border:'border-[#cd7f32] bg-[#cd7f32] bg-opacity-10', text:'text-[#cd7f32]', borderb: 'border-b-[#cd7f32]'},
+    Plata: {border:'border-[#bec2cb] bg-[#bec2cb] bg-opacity-10', text:'text-[#bec2cb]', borderb: 'border-b-[#bec2cb]'},
+    Platino: {border:'border-[#046307] bg-[#046307] bg-opacity-10', text:'text-[#046307]', borderb: 'border-b-[#046307]'}
   }
 
 export default function Home() {
