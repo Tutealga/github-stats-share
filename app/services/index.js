@@ -42,6 +42,7 @@ export const getCommits = async ({userLogin}) => {
 
   export const getUser = async ({id}) => {
     const res = await fetch(`${userPath}${id}`)
-    const json = await res.json()
-    return json
-  }
+      const json = await res.json()
+      return json
+    }
+    

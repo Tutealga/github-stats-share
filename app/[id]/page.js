@@ -8,14 +8,17 @@ import calculateRank from "../services/calculateRanks";
 import SaveImage from "@/app/components/saveImageButton";
 import { twitter } from "@/app/const/links";
 import { getUser, getRepos, getStars, getCommits, getIssues, getPr } from '@/app/services/index';
+import { Suspense } from "react";
+import Skeleton from "../components/Skeleton";
+import NotFound from "./NotFound";
 
 const getRank = async ({level}) => {
   const ranks = {
-    "Diamante": {border:'border-[#70d1f4] bg-[#70d1f4] bg-opacity-10', text:'text-[#70d1f4]', borderb: 'border-b-[#70d1f4]'}, 
-    "Oro": {border:'border-[#ffd700] bg-[#ffd700] bg-opacity-10', text:'text-[#ffd700]', borderb: 'border-b-[#ffd700]'}, 
-    "Bronze": {border:'border-[#cd7f32] bg-[#cd7f32] bg-opacity-10', text:'text-[#cd7f32]', borderb: 'border-b-[#cd7f32]'},
-    "Plata": {border:'border-[#bec2cb] bg-[#bec2cb] bg-opacity-10', text:'text-[#bec2cb]', borderb: 'border-b-[#bec2cb]'},
-    "Platino": {border:'border-[#046307] bg-[#046307] bg-opacity-10', text:'text-[#046307]', borderb: 'border-b-[#046307]'}
+    "Diamante": {border:'border-[#70d1f4] bg-[#70d1f4]', text:'text-[#70d1f4]', borderb: 'border-b-[#70d1f4]'}, 
+    "Oro": {border:'border-[#ffd700] bg-[#ffd700]', text:'text-[#ffd700]', borderb: 'border-b-[#ffd700]'}, 
+    "Bronze": {border:'border-[#cd7f32] bg-[#cd7f32]', text:'text-[#cd7f32]', borderb: 'border-b-[#cd7f32]'},
+    "Plata": {border:'border-[#bec2cb] bg-[#bec2cb]', text:'text-[#bec2cb]', borderb: 'border-b-[#bec2cb]'},
+    "Platino": {border:'border-[#046307] bg-[#046307]', text:'text-[#046307]', borderb: 'border-b-[#046307]'}
   }
 
   const ranking = Object.keys(ranks).find((res) => res === level)
@@ -26,42 +29,43 @@ const getRank = async ({level}) => {
 export default async function Page({params}) {
 const {id} = params
 const user = await getUser({id})
-const userLogin = user.login
-const reposCount = user.public_repos
+if(user.message === 'Not Found') return <NotFound />
 const followers = user.followers
-const starsCount = await getRepos({userLogin, reposCount})
+const starsCount = await getRepos({userLogin: user.login, reposCount: user.public_repos})
 const stars = await getStars({starsCount})
-const commits = await getCommits({userLogin})
-const issues = await getIssues({userLogin})
-const pr = await getPr({userLogin})
+const commits = await getCommits({userLogin: user.login})
+const issues = await getIssues({userLogin: user.login})
+const pr = await getPr({userLogin: user.login})
 const {level} = await calculateRank({commits, pr, issues, stars, followers})
 const hexRank = await getRank({level})
 
   return (
-    <>
-      <div id="user-card" className={`border p-5 rounded-lg w-full h-[450px] justify-between flex flex-col ${hexRank.border}`}>
-      <div className={`flex items-center justify-between border-opacity-20 ${hexRank.borderb} border-b pb-6`}>
-        <div className="flex gap-2">
-      <Image src={user.avatar_url} width={50} height={50} className="rounded-full w-14 h-14"/>
-     <p className="text-white flex font-bold items-center">{user.name}</p>
+      <>
+      <Suspense fallback={<Skeleton />}>
+        <div id="user-card" className={`border p-5 rounded-lg w-full h-[450px] bg-opacity-10 justify-between flex flex-col ${hexRank.border}`}>
+        <div className={`flex items-center justify-between border-opacity-20 ${hexRank.borderb} border-b pb-6`}>
+          <div className="flex gap-2">
+        <Image src={user.avatar_url} width={50} height={50} className="rounded-full w-14 h-14"/>
+       <p className="text-white flex font-bold items-center">{user.name}</p>
+          </div>
+       <FontAwesomeIcon className={`${hexRank.text} w-10 h-10`} icon={faAward} />
         </div>
-     <FontAwesomeIcon className={`${hexRank.text} w-10 h-10`} icon={faAward} />
-      </div>
-     <div className="grid grid-cols-2 gap-4">
-     <div className="flex flex-col text-sm"><div className="flex gap-1 items-center"><FontAwesomeIcon className="w-4 h-4" icon={faStar} /><span>Stars:</span></div><p className="font-bold">{stars > 1000 ? `${(stars / 1000).toFixed(1)}k`: stars}</p></div>
-     <div className="flex flex-col text-sm"><div className="flex gap-1 items-center"><FontAwesomeIcon className="w-4 h-4" icon={faCodePullRequest} /><span>Pull Requests:</span></div><p className="font-bold">{pr > 1000 ? `${(pr / 1000).toFixed(1)}k`: pr}</p></div>
-     <div className="flex flex-col text-sm"><div className="flex gap-1 items-center"><FontAwesomeIcon className="w-4 h-4" icon={faClockRotateLeft} /><span>Commits:</span></div><p className="font-bold">{commits > 1000 ? `${(commits / 1000).toFixed(1)}k`: commits}</p></div>
-     <div className="flex flex-col text-sm"><div className="flex gap-1 items-center"><FontAwesomeIcon className="w-4 h-4" icon={faUserGroup} /><span>Followers:</span></div><p className="font-bold">{user.followers > 1000 ? `${(user.followers / 1000).toFixed(1)}k`: user.followers}</p></div>
-     <div className="flex flex-col text-sm"><div className="flex gap-1 items-center"><FontAwesomeIcon className="w-4 h-4" icon={faBookBookmark} /><span>Repositories:</span></div><p className="font-bold">{user.public_repos > 1000 ? `${(user.public_repos / 1000).toFixed(1)}k`: user.public_repos}</p></div>
-     <div className="flex flex-col text-sm"><div className="flex gap-1 items-center"><FontAwesomeIcon className="w-4 h-4" icon={faCircleExclamation} /><span>Issues:</span></div><p className="font-bold">{issues > 1000 ? `${(issues / 1000).toFixed(1)}k`: issues}</p></div>
-     </div>
-     <div className="flex flex-start gap-6 text-sm opacity-80">
-     <Link className="gap-2 flex items-center" href={user.html_url}><FontAwesomeIcon className="w-4 h-4" icon={faGithub} />{user.login}</Link>
-     {user.twitter_username && <Link href={`${twitter}${user.twitter_username}`} className="gap-2 flex items-center"><FontAwesomeIcon className="w-4 h-4" icon={faXTwitter} />{user.twitter_username}</Link>}
-     {user.blog && <Link className="gap-2 flex items-center" href={user.blog}><FontAwesomeIcon className="w-4 h-4" icon={faPaperclip} />website</Link>}
-     </div>
-      </div>
-    <SaveImage />
-    </>
-  )
+       <div className="grid grid-cols-2 gap-4">
+       <div className="flex flex-col text-sm"><div className="flex gap-1 items-center"><FontAwesomeIcon className="w-4 h-4" icon={faStar} /><span>Stars:</span></div><p className="font-bold">{stars > 1000 ? `${(stars / 1000).toFixed(1)}k`: stars}</p></div>
+       <div className="flex flex-col text-sm"><div className="flex gap-1 items-center"><FontAwesomeIcon className="w-4 h-4" icon={faCodePullRequest} /><span>Pull Requests:</span></div><p className="font-bold">{pr > 1000 ? `${(pr / 1000).toFixed(1)}k`: pr}</p></div>
+       <div className="flex flex-col text-sm"><div className="flex gap-1 items-center"><FontAwesomeIcon className="w-4 h-4" icon={faClockRotateLeft} /><span>Commits:</span></div><p className="font-bold">{commits > 1000 ? `${(commits / 1000).toFixed(1)}k`: commits}</p></div>
+       <div className="flex flex-col text-sm"><div className="flex gap-1 items-center"><FontAwesomeIcon className="w-4 h-4" icon={faUserGroup} /><span>Followers:</span></div><p className="font-bold">{user.followers > 1000 ? `${(user.followers / 1000).toFixed(1)}k`: user.followers}</p></div>
+       <div className="flex flex-col text-sm"><div className="flex gap-1 items-center"><FontAwesomeIcon className="w-4 h-4" icon={faBookBookmark} /><span>Repositories:</span></div><p className="font-bold">{user.public_repos > 1000 ? `${(user.public_repos / 1000).toFixed(1)}k`: user.public_repos}</p></div>
+       <div className="flex flex-col text-sm"><div className="flex gap-1 items-center"><FontAwesomeIcon className="w-4 h-4" icon={faCircleExclamation} /><span>Issues:</span></div><p className="font-bold">{issues > 1000 ? `${(issues / 1000).toFixed(1)}k`: issues}</p></div>
+       </div>
+       <div className="flex flex-start gap-6 text-sm opacity-80">
+       <Link className="gap-2 flex items-center" href={user.html_url}><FontAwesomeIcon className="w-4 h-4" icon={faGithub} />{user.login}</Link>
+       {user.twitter_username && <Link href={`${twitter}${user.twitter_username}`} className="gap-2 flex items-center"><FontAwesomeIcon className="w-4 h-4" icon={faXTwitter} />{user.twitter_username}</Link>}
+       {user.blog && <Link className="gap-2 flex items-center" href={user.blog}><FontAwesomeIcon className="w-4 h-4" icon={faPaperclip} />website</Link>}
+       </div>
+        </div>
+      </Suspense>
+  <SaveImage />
+      </>
+    )
 }
