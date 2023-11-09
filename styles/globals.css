@@ -6,3 +6,26 @@ body {
    font-family: system-ui;
 }
 
+.pentagono {
+	clip-path: polygon( 50% 0, 100% 38%, 81% 100%, 19% 100%, 0 38%);
+}
+
+.gold path{
+   fill: #ffd700;
+}
+
+.silver path{
+   fill: #bec2cb;
+}
+
+.diamond path{
+   fill: #70d1f4;
+}
+
+.emerald path{
+   fill: #50c878;
+}
+
+.bronze path{
+   fill: #a97142;
+}

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Skeleton = () => {
   return (
     <div className='border p-5 rounded-lg w-full h-[450px] justify-between flex flex-col animate-pulse bg-gray-300 border-gray-300 bg-opacity-10'>
