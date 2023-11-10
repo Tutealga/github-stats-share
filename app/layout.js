@@ -26,7 +26,7 @@ const ranks = [
 export default function RootLayout({ children }) {
   return (
     <html>
-      <body className="relative bg-[#050505] text-white max-h-screen p-4">
+      <body className="relative bg-[#101a23] text-white max-h-screen p-4">
           <section className="flex flex-col items-center justify-center p-5 w-[400px] m-auto gap-4">
           <h1 className="text-2xl font-bold">GitHub stats for Linkedin</h1>
           <section className="grid grid-cols-3 items-center sm:flex justify-center gap-4">
