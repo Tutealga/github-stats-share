@@ -16,7 +16,7 @@ function exponential_cdf(x) {
     const TOTAL_WEIGHT = COMMITS_WEIGHT + PRS_WEIGHT + ISSUES_WEIGHT + STARS_WEIGHT + FOLLOWERS_WEIGHT;
   
     const THRESHOLDS = [1, 25, 50, 75, 100];
-    const LEVELS = ["Diamante", "Platino", "Oro", "Plata", "Bronze"];
+    const LEVELS = ["Diamante", "Emerald", "Oro", "Plata", "Bronze"];
   
     const rank = 1 - (COMMITS_WEIGHT * exponential_cdf(commits / COMMITS_MEDIAN) +
         PRS_WEIGHT * exponential_cdf(pr / PRS_MEDIAN) +
