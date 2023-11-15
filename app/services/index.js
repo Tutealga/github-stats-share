@@ -1,4 +1,5 @@
 import { searchPath, userPath } from "@/app/const/links"
+import { ranks } from "../const/ranks"
 
 export const getCommits = async ({userLogin}) => {
     const res = await fetch(`${searchPath}commits?q=author:${userLogin}`)
@@ -11,6 +12,11 @@ export const getCommits = async ({userLogin}) => {
     const json = await res.json()
     return json.total_count
    }
+
+  export const getRank = async ({level}) => {
+    const ranking = ranks.find((res) => res.name === level)
+    return ranking
+    }
 
    export const getPr = async ({userLogin}) => {
     const res = await fetch(`${searchPath}issues?q=author:${userLogin}+is:pr`)
@@ -41,7 +47,7 @@ export const getCommits = async ({userLogin}) => {
   }
 
   export const getUser = async ({id}) => {
-    const res = await fetch(`${userPath}${id}`)
+    const res = await fetch(`${userPath}${id}`, { next: { revalidate: 1 } })
       const json = await res.json()
       return json
     }

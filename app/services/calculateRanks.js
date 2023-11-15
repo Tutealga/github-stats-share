@@ -26,7 +26,7 @@ function exponential_cdf(x) {
         TOTAL_WEIGHT;
   
     const level = LEVELS[THRESHOLDS.findIndex((t) => rank * 100 <= t)];
-   
+
     return {level} 
   }
   

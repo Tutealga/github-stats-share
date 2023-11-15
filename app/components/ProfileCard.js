@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import Skeleton from "../components/Skeleton";
 import Rank from "../components/Rank";
-import { twitter } from "@/app/const/links";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,6 +9,7 @@ import { faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
 
 const ProfileCard = ({hexRank, user, stars, pr, commits, issues}) => {
+
   return (
     <Suspense fallback={<Skeleton />}>
         <article id="user-card" className={`border p-5 rounded-lg w-full h-[450px] bg-opacity-20 justify-between flex flex-col ${hexRank.border} ease-in-out duration-500 transition`}>
@@ -30,7 +30,7 @@ const ProfileCard = ({hexRank, user, stars, pr, commits, issues}) => {
        </div>
        <div className="flex flex-start gap-6 text-sm opacity-80">
        <Link className="gap-2 flex items-center" href={user.html_url}><FontAwesomeIcon className="w-4 h-4" icon={faGithub} />{user.login}</Link>
-       {user.twitter_username && <Link href={`${twitter}${user.twitter_username}`} className="gap-2 flex items-center"><FontAwesomeIcon className="w-4 h-4" icon={faXTwitter} />{user.twitter_username}</Link>}
+       {user.twitter_username && <Link href={`https://twitter.com/${user.twitter_username}`} className="gap-2 flex items-center"><FontAwesomeIcon className="w-4 h-4" icon={faXTwitter} />{user.twitter_username}</Link>}
        {user.blog && <Link className="gap-2 flex items-center" href={user.blog}><FontAwesomeIcon className="w-4 h-4" icon={faPaperclip} />website</Link>}
        </div>
         </article>
