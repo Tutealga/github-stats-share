@@ -7,12 +7,12 @@ import { ranks } from './const/ranks'
 export const metadata = {
   title: 'GitHub stats to share',
   description: 'Search your GitHub stats and share on social networks',
-  metadataBase: new URL('https://github-stats-linkedin.vercel.app'),
+  metadataBase: new URL('https://github-stats-share.vercel.app'),
   openGraph: {
     title: 'GitHub stats to share on social networks',
     description: 'Search your GitHub stats and share on social networks',
     images: '/opengraph-image.jpg',
-    url: 'https://github-stats-linkedin.vercel.app',
+    url: 'https://github-stats-share.vercel.app',
   },
 }
 
