@@ -7,18 +7,20 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faPaperclip } from '@fortawesome/free-solid-svg-icons'
+import ProgressBar from './ProgressBar'
 
-const ProfileCard = ({ hexRank, user, stars, pr, commits, issues }) => {
+const ProfileCard = ({ hexRank, user, stars, pr, commits, issues, nextLevelPercentage, nextLevel }) => {
   return (
     <Suspense fallback={<Skeleton />}>
-      <article id='user-card' className={`border p-5 rounded-lg w-full h-[450px] bg-opacity-20 justify-between flex flex-col ${hexRank.border} ease-in-out duration-500 transition`}>
-        <div className={`flex items-center justify-between border-opacity-20 ${hexRank.borderb} border-b pb-6`}>
+      <article id='user-card' className={`border p-5 rounded-lg w-full h-[450px] bg-opacity-20 justify-between flex flex-col ${hexRank.border} ${hexRank.background} selection:ease-in-out duration-500 transition`}>
+        <div className='flex items-center justify-between'>
           <div className='flex gap-2'>
             <Image src={user.avatar_url} width={50} height={50} alt={user.name} className='rounded-2xl w-14 h-14' />
             <p className='text-white flex font-bold items-center'>{user.name}</p>
           </div>
           <Rank star={hexRank.fill} shadow={hexRank.shadow} stroke={hexRank.stroke} />
         </div>
+        <ProgressBar nextLevelPercentage={nextLevelPercentage} nextLevel={nextLevel} bg={hexRank.background} />
         <div className='grid grid-cols-2 gap-4'>
           <div className='flex flex-col text-sm'><p className='font-bold'>{stars > 1000 ? `${(stars / 1000).toFixed(1)}k` : stars}</p><span>Stars</span></div>
           <div className='flex flex-col text-sm'><p className='font-bold'>{pr > 1000 ? `${(pr / 1000).toFixed(1)}k` : pr}</p><span>Pull Requests</span></div>

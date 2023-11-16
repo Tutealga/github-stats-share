@@ -26,8 +26,10 @@ async function calculateRank ({ commits, pr, issues, stars, followers }) {
         TOTAL_WEIGHT
 
   const level = LEVELS[THRESHOLDS.findIndex((t) => rank * 100 <= t)]
+  const nextLevel = LEVELS[THRESHOLDS.findIndex((t) => ((rank * 100) - 25) <= t)]
+  const nextLevelPercentage = 100 - (((rank * 100 - THRESHOLDS.find((t) => ((rank * 100) - 25) <= t)) * 100) / 25)
 
-  return { level }
+  return { level, nextLevel, nextLevelPercentage }
 }
 
 export { calculateRank }

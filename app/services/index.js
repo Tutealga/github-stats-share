@@ -18,6 +18,11 @@ export const getRank = async ({ level }) => {
   return ranking
 }
 
+export const getNextRank = async ({ nextLevel }) => {
+  const ranking = ranks.find((res) => res.name === nextLevel)
+  return ranking
+}
+
 export const getPr = async ({ userLogin }) => {
   const res = await fetch(`${searchPath}issues?q=author:${userLogin}+is:pr`)
   const json = await res.json()
