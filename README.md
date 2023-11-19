@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Github Stats Share
+- ⭐Obten un rango de tu perfil de Github según tus estadisticas ⭐
+![github_stats_share](./app/gitstats.png)
 
-## Getting Started
+## Sobre🧠
+- Es una aplicación web que, mediante el API de Github, muestra el perfil del usuario.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+https://github-stats-share.vercel.app/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Como utilizarlo🤓
+- Abre la aplicación en tu navegador
+- Busca tu perfil 
+- Obten un rango
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Rangos 
+- El cálculo del rango está determinado por la cantidad de commits, pull request, estrellas, seguidores y problemas.
+- 6 niveles: Diamante🩵 Esmeralda💚 Oro💛 Plata🩶 Bronce🤎
+- Dependiendo de tu rango, verás reflejado el camino que falta para ascender👑👑👑
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Tecnologias👑
+- HTML
+- CSS
+- Javascript
+- NextJS
 
-## Learn More
+## Descargar y utilizar el proyecto💻
+```
+git clone https://github.com/Tutealga/github-stats-share.git
 
-To learn more about Next.js, take a look at the following resources:
+cd github-stats-share
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+npm run dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+- abre http://localhost:3000 con tu navegador preferido
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
