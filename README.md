@@ -6,8 +6,7 @@
 - Es una aplicación web que, realiza peticiones a la API de Github, y muestra el perfil de un usuario con sus diferentes estadisticas.
 
 ## Como utilizarlo 🤓
-- Abre la aplicación en tu navegador
-<a href="https://github-stats-share.vercel.app/">https://github-stats-share.vercel.app/</a>
+- Abre la aplicación en tu navegador <a href="https://github-stats-share.vercel.app/" target="_blank">https://github-stats-share.vercel.app/</a>
 - Busca tu perfil
 - Obten un rango
 
@@ -31,5 +30,5 @@ cd github-stats-share
 npm run dev
 
 ```
-- Abre http://localhost:3000 con tu navegador preferido
+- Abre <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> con tu navegador preferido
 
