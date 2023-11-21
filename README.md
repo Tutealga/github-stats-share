@@ -1,29 +1,28 @@
-## Github Stats Share
-- ⭐Obten un rango de tu perfil de Github según tus estadisticas ⭐
+## GitHub stats to share
+- ⭐ Obten un rango de tu perfil de Github según tus estadisticas ⭐
 ![github_stats_share](./app/gitstats.png)
 
-## Sobre🧠
-- Es una aplicación web que, mediante el API de Github, muestra el perfil del usuario.
+## Sobre 🧠
+- Es una aplicación web que, realiza peticiones a la API de Github, y muestra el perfil de un usuario con sus diferentes estadisticas.
 
+## Como utilizarlo 🤓
+- Abre la aplicación en tu navegador
 ```
 https://github-stats-share.vercel.app/
 ```
-
-## Como utilizarlo🤓
-- Abre la aplicación en tu navegador
-- Busca tu perfil 
+- Busca tu perfil
 - Obten un rango
 
 ## Rangos 
 - El cálculo del rango está determinado por la cantidad de commits, pull request, estrellas, seguidores y problemas.
-- 6 niveles: Diamante🩵 Esmeralda💚 Oro💛 Plata🩶 Bronce🤎
-- Dependiendo de tu rango, verás reflejado el camino que falta para ascender👑👑👑
+- 6 niveles: 🩵Diamante 💚Esmeralda 💛Oro 🩶Plata 🤎Bronce
+- Dependiendo de tu rango, verás reflejado el camino que falta para ascender 👑👑👑
 
-## Tecnologias👑
+## Tecnologias 👑
 - HTML
 - CSS
 - Javascript
-- NextJS
+- Next.js
 
 ## Descargar y utilizar el proyecto💻
 ```
@@ -34,5 +33,5 @@ cd github-stats-share
 npm run dev
 
 ```
-- abre http://localhost:3000 con tu navegador preferido
+- Abre http://localhost:3000 con tu navegador preferido
 
