@@ -7,10 +7,7 @@
 
 ## Como utilizarlo 🤓
 - Abre la aplicación en tu navegador
-```
-https://github-stats-share.vercel.app/
-```
-<a href="https://github-stats-share.vercel.app/">Abrir</a>
+<a href="https://github-stats-share.vercel.app/">https://github-stats-share.vercel.app/</a>
 - Busca tu perfil
 - Obten un rango
 
