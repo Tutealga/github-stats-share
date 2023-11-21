@@ -10,6 +10,7 @@
 ```
 https://github-stats-share.vercel.app/
 ```
+<a href="https://github-stats-share.vercel.app/">Abrir</a>
 - Busca tu perfil
 - Obten un rango
 
