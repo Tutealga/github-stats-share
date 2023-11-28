@@ -1,4 +1,4 @@
-# 📊 GitHub stats to share [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/tutealga/github-stats-share/LICENSE)
+# 📊 GitHub stats to share [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/tutealga/github-stats-share/blob/master/LICENSE)
 Get your GitHub profile stats to share on social medias. 
 
 Get a rank for your GitHub profile based on your stats.
