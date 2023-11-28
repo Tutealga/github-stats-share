@@ -1,4 +1,4 @@
-# 📊 GitHub stats to share
+# GitHub stats to share 📊
 Get your GitHub profile stats to share on social medias. 
 
 Get a rank for your GitHub profile based on your stats.
@@ -7,12 +7,12 @@ Get a rank for your GitHub profile based on your stats.
 ## How to use ❓
 - Open the app in your browser <a href="https://github-stats-share.vercel.app/" target="_blank">https://github-stats-share.vercel.app/</a>.
 - Search by your GitHub username.
-- Get a profile ranking based on your stats.
+- Get a profile card with a ranking based on your stats.
 - Click "Download" button and get your image to share.
 
 ## Ranks 👑
 - Your profile rank is determined by the number of commits, pull requests, stars, followers, and issues.
-- 6 levels: 🩵Diamond 💚Emerald 💛Gold 🩶Silver 🤎Bronze
+- 6 levels: Diamond, Emerald, Gold, Silver, Bronze
 - Depending on your rank, you will see the path that remains to be promoted. 
 
 ## How to download and run locally 💻
