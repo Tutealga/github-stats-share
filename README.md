@@ -1,34 +1,44 @@
-## GitHub stats to share
-- ⭐ Obten un rango de tu perfil de Github según tus estadisticas ⭐
+# 📊 GitHub stats to share
+Get your GitHub profile stats to share on social medias. 
+
+Get a rank for your GitHub profile based on your stats.
 ![github_stats_share](./app/gitstats.png)
 
-## Sobre 🧠
-- Es una aplicación web que, realiza peticiones a la API de Github, y muestra el perfil de un usuario con sus diferentes estadisticas.
+## How to use ❓
+- Open the app in your browser <a href="https://github-stats-share.vercel.app/" target="_blank">https://github-stats-share.vercel.app/</a>.
+- Search by your GitHub username.
+- Get a profile ranking based on your stats.
+- Click "Download" button and get your image to share.
 
-## Como utilizarlo 🤓
-- Abre la aplicación en tu navegador <a href="https://github-stats-share.vercel.app/" target="_blank">https://github-stats-share.vercel.app/</a>
-- Busca tu perfil
-- Obten un rango
+## Ranks 👑
+- Your profile rank is determined by the number of commits, pull requests, stars, followers, and issues.
+- 6 levels: 🩵Diamond 💚Emerald 💛Gold 🩶Silver 🤎Bronze
+- Depending on your rank, you will see the path that remains to be promoted. 
 
-## Rangos 
-- El cálculo del rango está determinado por la cantidad de commits, pull request, estrellas, seguidores y problemas.
-- 6 niveles: 🩵Diamante 💚Esmeralda 💛Oro 🩶Plata 🤎Bronce
-- Dependiendo de tu rango, verás reflejado el camino que falta para ascender 👑👑👑
-
-## Tecnologias 👑
-- HTML
-- CSS
-- Javascript
-- Next.js
-
-## Descargar y utilizar el proyecto💻
+## How to download and run locally 💻
 ```
 git clone https://github.com/Tutealga/github-stats-share.git
-
+```
+Install the package using [NPM](https://nodejs.org/en/):
+```
+npm install
+```
+```
 cd github-stats-share
-
+```
+Running locally:
+```
 npm run dev
 
 ```
-- Abre <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> con tu navegador preferido
+- Open <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> with your preferred browser
+
+## Tecnologies ⚙️
+- Next.js
+- Javascript
+- Tailwind CSS
+
+## Deployment
+
+This project is deployed on [Vercel](https://vercel.com/).
 
