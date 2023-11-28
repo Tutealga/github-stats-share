@@ -19,19 +19,18 @@ Get a rank for your GitHub profile based on your stats.
 ```
 git clone https://github.com/Tutealga/github-stats-share.git
 ```
+```
+cd github-stats-share
+```
 Install the package using [NPM](https://nodejs.org/en/):
 ```
 npm install
 ```
-```
-cd github-stats-share
-```
 Running locally:
 ```
 npm run dev
-
 ```
-- Open <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> with your preferred browser
+- Open <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> with your favorite browser
 
 ## Tecnologies ⚙️
 - Next.js
