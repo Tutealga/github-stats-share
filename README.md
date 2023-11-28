@@ -2,7 +2,7 @@
 Get your GitHub profile stats to share on social medias. 
 
 Get a rank for your GitHub profile based on your stats.
-![github_stats_share](./app/gitstats.png)
+![github_stats_share](./app/twitter-image.jpg)
 
 ## How to use ❓
 - Open the app in your browser <a href="https://github-stats-share.vercel.app/" target="_blank">https://github-stats-share.vercel.app/</a>.
