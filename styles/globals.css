@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-   font-family: system-ui;
+   font-family: 'nunito', system-ui, sans-serif;
 }
 
 .pentagono {
