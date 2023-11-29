@@ -16,7 +16,6 @@ export default function Home () {
       const index = Math.floor(Math.random() * length)
       const randomKey = ranks[index]
       const nextRandomKey = ranks[index !== 0 ? index - 1 : index]
-      console.log(randomKey, nextRandomKey)
       setRank(randomKey)
       setNextRank(nextRandomKey)
     }, 2500)

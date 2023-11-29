@@ -1,14 +1,14 @@
 import { searchPath, userPath } from '@/app/const/links'
 import { ranks } from '../const/ranks'
 
-export const getCommits = async ({ userLogin }) => {
-  const res = await fetch(`${searchPath}commits?q=author:${userLogin}`)
+export const getCommits = async ({ login }) => {
+  const res = await fetch(`${searchPath}commits?q=author:${login}`)
   const json = await res.json()
   return json.total_count
 }
 
-export const getIssues = async ({ userLogin }) => {
-  const res = await fetch(`${searchPath}issues?q=author:${userLogin}+is:issue`)
+export const getIssues = async ({ login }) => {
+  const res = await fetch(`${searchPath}issues?q=author:${login}+is:issue`)
   const json = await res.json()
   return json.total_count
 }
@@ -23,24 +23,24 @@ export const getNextRank = async ({ nextLevel }) => {
   return ranking
 }
 
-export const getPr = async ({ userLogin }) => {
-  const res = await fetch(`${searchPath}issues?q=author:${userLogin}+is:pr`)
+export const getPr = async ({ login }) => {
+  const res = await fetch(`${searchPath}issues?q=author:${login}+is:pr`)
   const json = await res.json()
   return json.total_count
 }
 
-export const getRepos = async ({ userLogin, reposCount }) => {
-  const pages = Math.ceil(reposCount / 100)
+export const getRepos = async ({ login, public_repos }) => {
+  const pages = Math.ceil(public_repos / 100)
   const stars = []
 
-  if (reposCount >= 100) {
+  if (public_repos >= 100) {
     for (let i = 1; i <= pages; i++) {
-      const res = await fetch(`${userPath}${userLogin}/repos?per_page=100&page=${i}`)
+      const res = await fetch(`${userPath}${login}/repos?per_page=100&page=${i}`)
       const json = await res.json()
       json.map(star => stars.push(star.stargazers_count))
     }
   } else {
-    const res = await fetch(`${userPath}${userLogin}/repos?per_page=${reposCount}`)
+    const res = await fetch(`${userPath}${login}/repos?per_page=${public_repos}`)
     const json = await res.json()
     json.map(star => stars.push(star.stargazers_count))
   }

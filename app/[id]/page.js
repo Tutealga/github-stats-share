@@ -9,13 +9,14 @@ import SaveImage from '../components/saveImageButton'
 export default async function Page ({ params }) {
   const { id } = params
   const user = await getUser({ id })
-  if (user.message === 'Not Found' || user.message === "API rate limit exceeded for 201.235.28.197. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)") return <NotFound />
-  const starsCount = await getRepos({ userLogin: user.login, reposCount: user.public_repos })
+  const { message, login, public_repos, followers } = user
+  if (message === 'Not Found' || message === "API rate limit exceeded for 201.235.28.197. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)") return <NotFound />
+  const starsCount = await getRepos({ login, public_repos })
   const stars = await getStars({ starsCount })
-  const commits = await getCommits({ userLogin: user.login })
-  const issues = await getIssues({ userLogin: user.login })
-  const pr = await getPr({ userLogin: user.login })
-  const { level, nextLevelPercentage, nextLevel } = await calculateRank({ commits, pr, issues, stars, followers: user.followers })
+  const commits = await getCommits({ login })
+  const issues = await getIssues({ login })
+  const pr = await getPr({ login })
+  const { level, nextLevelPercentage, nextLevel } = await calculateRank({ commits, pr, issues, stars, followers })
   const hexRank = await getRank({ level })
   const hexNextRank = await getNextRank({ nextLevel })
 
