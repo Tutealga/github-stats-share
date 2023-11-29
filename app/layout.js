@@ -5,7 +5,7 @@ import RankLayout from './components/RankLayout'
 import { ranks } from './const/ranks'
 
 export const metadata = {
-  title: 'GitHub stats to share',
+  title: 'GitHub Stats to Share',
   description: 'Search your GitHub stats and share on social medias',
   metadataBase: new URL('https://github-stats-share.vercel.app'),
   openGraph: {
